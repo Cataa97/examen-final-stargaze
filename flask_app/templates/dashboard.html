@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <meta charset="UTF-8">
+    <title>Stargaze 2</title>
+</head>
+<body>
+
+    <div class="header-top">
+        <h1>Bienvenid@ {{ usuario.nombre }}</h1>
+        <a href="/logout" class="btn-secundario">Cerrar Sesión</a>
+    </div>
+
+    <fieldset>
+        <legend>Nueva publicación</legend>
+        {% with messages = get_flashed_messages(category_filter=["publicacion"]) %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="mensaje-error">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form action="/publicaciones/crear" method="POST">
+            <table style="border: none; width: 100%;">
+                <tr>
+                    <td style="border: none; width: 45%; vertical-align: top; padding-right: 15px;">
+                        <input type="text" name="nombre" placeholder="Nombre de Estrella/Constelación" style="width: 100%; padding: 8px; border: 1px solid #000; border-radius: 6px; box-sizing: border-box;">
+                        <br><br>
+                        <input type="date" name="fecha" style="width: 100%; padding: 8px; border: 1px solid #000; border-radius: 6px; box-sizing: border-box;">
+                        <br><br>
+                        <input type="text" name="lugar" placeholder="Lugar de Encuentro" style="width: 100%; padding: 8px; border: 1px solid #000; border-radius: 6px; box-sizing: border-box;">
+                    </td>
+                    <td style="border: none; width: 55%; vertical-align: top;">
+                        <textarea name="descripcion" rows="6" placeholder="Descripción del encuentro" style="width: 100%; padding: 8px; border: 1px solid #000; border-radius: 6px; box-sizing: border-box;"></textarea>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <div style="text-align: right;">
+                <button type="submit">Compartir</button>
+            </div>
+        </form>
+    </fieldset>
+
+    <h2>Todas las observaciones de estrellas</h2>
+    {% for p in publicaciones %}
+    <div class="caja-publicacion">
+        <div class="header-pub">
+            <h2 style="margin: 0;">{{ p.nombre }}</h2>
+            {% if p.usuario_id == usuario.id %}
+                <div class="acciones-pub">
+                    <a href="/editar/{{ p.id }}" class="btn-secundario">Editar</a>
+                    <a href="/publicaciones/borrar/{{ p.id }}" class="btn-secundario">Borrar</a>
+                </div>
+            {% endif %}
+        </div>
+
+        <p class="subtitulo-pub"><strong>{{ p.creador.nombre }}</strong> <em>{{ p.fecha }}</em> {{ p.lugar }}</p>
+        <p>{{ p.descripcion }}</p>
+
+        <div class="caja-likes">
+            <span>Me gusta: {{ p.num_likes }}</span>
+            {% if not p.dio_like %}
+                <a href="/publicaciones/like/{{ p.id }}"><button type="button">Me gusta</button></a>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+
+</body>
+</html>

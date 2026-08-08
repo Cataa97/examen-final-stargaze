@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px auto;
+    max-width: 800px;
+    color: #000;
+}
+
+h1, h2, h3 {
+    color: #000;
+}
+
+.layout-login {
+    border: none;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.col-layout {
+    border: none;
+    width: 50%;
+    vertical-align: top;
+    padding: 10px 20px;
+}
+
+.formulario {
+    width: 100%;
+    max-width: 280px;
+}
+
+.formulario input, 
+.formulario textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #000;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.mensaje-error {
+    color: red;
+    font-size: 13px;
+    margin: 3px 0;
+}
+
+button {
+    display: inline-block;
+    padding: 6px 16px;
+    background-color: #ffffff;
+    border: 1.5px solid #000;
+    border-radius: 12px;
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-secundario{
+     display: inline-block;
+    padding: 6px 16px;
+    background-color: #ffffff;
+    border: 1.5px solid #000;
+    border-radius: 12px;
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+
+}
+
+button:hover {
+    background-color: #f0f0f0;
+}
+
+.btn-secundario:hover {
+    background-color: #f0f0f0;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+fieldset {
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+legend {
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+.caja-publicacion {
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 18px;
+    margin-bottom: 20px;
+}
+
+.header-pub {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.acciones-pub {
+    display: flex;
+    gap: 8px;
+}
+
+.subtitulo-pub {
+    color: #444;
+    font-style: italic;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.caja-likes {
+    background-color: #d9d9d9;
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 8px 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.caja-likes button {
+    border-radius: 10px;
+    padding: 4px 12px;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <meta charset="UTF-8">
+    <title>Stargaze 2</title>
+</head>
+<body>
+    <table class="layout-login">
+        <tr>
+            <td class="col-layout">
+                <h1>Registro</h1>
+
+                {% with messages = get_flashed_messages(category_filter=["registro"]) %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="mensaje-error">{{ message }}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                <form action="/registro" method="POST" class="formulario">
+                    <label>Nombre:</label>
+                    <br>
+                    <input type="text" name="nombre" required>
+                    <br><br>
+
+                    <label>Apellido:</label>
+                    <br>
+                    <input type="text" name="apellido" required>
+                    <br><br>
+
+                    <label>E-mail:</label>
+                    <br>
+                    <input type="email" name="email" required>
+                    <br><br>
+
+                    <label>Contraseña:</label>
+                    <br>
+                    <input type="password" name="password" required>
+                    <br><br>
+
+                    <label>Conf. Contraseña:</label>
+                    <br>
+                    <input type="password" name="confirm_password" required>
+                    <br><br>
+
+                    <button type="submit">Registrar</button>
+                </form>
+            </td>
+
+            <td class="col-layout">
+                <h1>Inicio de Sesión</h1>
+                {% with messages = get_flashed_messages(category_filter=["login"]) %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="mensaje-error">{{ message }}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                <form action="/login" method="POST" class="formulario">
+                    <label>E-mail:</label>
+                    <br>
+                    <input type="email" name="email" required>
+                    <br><br>
+
+                    <label>Contraseña:</label>
+                    <br>
+                    <input type="password" name="password" required>
+                    <br><br>
+
+                    <button type="submit">Iniciar Sesión</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>
