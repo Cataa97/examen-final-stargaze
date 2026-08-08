@@ -3,11 +3,6 @@ import pymysql.cursors
 from dotenv import load_dotenv
 
 load_dotenv()
-# --- DEBUG TEMPORAL ---
-print("DEBUG DB_HOST =", repr(os.environ.get('DB_HOST')))
-print("DEBUG DB_PORT =", repr(os.environ.get('DB_PORT')))
-print("DEBUG DB_USER =", repr(os.environ.get('DB_USER')))
-# -----------------------
 
 class MySQLConnection:
     def __init__(self, db):
