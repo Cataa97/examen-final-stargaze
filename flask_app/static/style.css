@@ -28,7 +28,15 @@ h1, h2, h3 {
     max-width: 280px;
 }
 
-.formulario input, 
+.formulario input{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #000;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
 .formulario textarea {
     width: 100%;
     padding: 8px;
