@@ -19,14 +19,14 @@
         </ul>
         {% endif %} {% endwith %}
 
-        <form action="/procesar_editar/{{ publicacion.id }}" method="POST">
+        <form action="/procesar_editar/{{ pub.id }}" method="POST">
           <div class="grupo-formulario">
             <input
               type="text"
               name="nombre"
               class="campo-texto"
               placeholder="Nombre de Estrella/Constelación"
-              value="{{ publicacion.nombre }}"
+              value="{{ pub.nombre }}"
               required
             />
           </div>
@@ -36,7 +36,7 @@
               type="date"
               name="fecha"
               class="campo-texto"
-              value="{{ publicacion.fecha.strftime('%Y-%m-%d') if publicacion.fecha else '' }}"
+              value="{{ pub.fecha.strftime('%Y-%m-%d') if pub.fecha else '' }}"
               required
             />
           </div>
@@ -47,7 +47,7 @@
               name="lugar"
               class="campo-texto"
               placeholder="Lugar de Encuentro"
-              value="{{ publicacion.lugar }}"
+              value="{{ pub.lugar }}"
               required
             />
           </div>
@@ -59,7 +59,7 @@
               placeholder="Descripción del encuentro"
               required
             >
-{{ publicacion.descripcion }}</textarea
+{{ pub.descripcion }}</textarea
             >
           </div>
 
