@@ -11,15 +11,17 @@
       <h1>Editar Publicación</h1>
 
       <div class="tarjeta">
-        {% with messages = get_flashed_messages() %} {% if messages %}
-        <ul class="mensajes-flash">
-          {% for message in messages %}
-          <li>{{ message }}</li>
-          {% endfor %}
-        </ul>
-        {% endif %} {% endwith %}
+        {% with messages = get_flashed_messages() %} 
+          {% if messages %}
+            <ul class="mensajes-flash">
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %} 
+        {% endwith %}
 
-        <form action="/procesar_editar/{{ pub.id }}" method="POST">
+        <form action="/publicaciones/actualizar/{{ pub.id }}" method="POST">
           <div class="grupo-formulario">
             <input
               type="text"
@@ -58,9 +60,7 @@
               class="campo-texto area-texto"
               placeholder="Descripción del encuentro"
               required
-            >
-{{ pub.descripcion }}</textarea
-            >
+            >{{ pub.descripcion }}</textarea>
           </div>
 
           <div class="contenedor-boton">
