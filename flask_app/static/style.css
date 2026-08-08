@@ -138,3 +138,67 @@ legend {
     border-radius: 10px;
     padding: 4px 12px;
 }
+
+.contenedor {
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.tarjeta {
+    border: 1px solid #000000;
+    border-radius: 12px;
+    padding: 24px;
+    background-color: #ffffff;
+}
+
+.grupo-formulario {
+    margin-bottom: 16px;
+}
+
+.campo-texto {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+.area-texto {
+    height: 120px;
+    resize: vertical;
+}
+
+.contenedor-boton {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.boton-guardar {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    padding: 8px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.boton-guardar:hover {
+    background-color: #f0f0f0;
+}
+
+.mensajes-flash {
+    color: #d9534f;
+    margin-bottom: 15px;
+    list-style: none;
+    padding-left: 0;
+    font-size: 14px;
+}

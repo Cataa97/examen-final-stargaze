@@ -1,44 +1,73 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Editar Publicación</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-    <h1>Editar Publicación</h1>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/static/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar Publicación - Stargaze</title>
+  </head>
+  <body>
+    <div class="contenedor">
+      <h1>Editar Publicación</h1>
 
-    {% with messages = get_flashed_messages(category_filter=["edicion"]) %}
-        {% if messages %}
-            {% for message in messages %}
-                <p class="mensaje-error">{{ message }}</p>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
+      <div class="tarjeta">
+        {% with messages = get_flashed_messages() %} {% if messages %}
+        <ul class="mensajes-flash">
+          {% for message in messages %}
+          <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %} {% endwith %}
 
-    <form action="/publicaciones/actualizar/{{ pub.id }}" method="POST" class="formulario" style="max-width: 350px;">
-        <label>Nombre:</label>
-        <br>
-        <input type="text" name="nombre" value="{{ pub.nombre }}">
-        <br><br>
+        <form action="/procesar_editar/{{ publicacion.id }}" method="POST">
+          <div class="grupo-formulario">
+            <input
+              type="text"
+              name="nombre"
+              class="campo-texto"
+              placeholder="Nombre de Estrella/Constelación"
+              value="{{ publicacion.nombre }}"
+              required
+            />
+          </div>
 
-        <label>Fecha:</label>
-        <br>
-        <input type="date" name="fecha" value="{{ pub.fecha }}">
-        <br><br>
+          <div class="grupo-formulario">
+            <input
+              type="date"
+              name="fecha"
+              class="campo-texto"
+              value="{{ publicacion.fecha.strftime('%Y-%m-%d') if publicacion.fecha else '' }}"
+              required
+            />
+          </div>
 
-        <label>Lugar:</label>
-        <br>
-        <input type="text" name="lugar" value="{{ pub.lugar }}">
-        <br><br>
+          <div class="grupo-formulario">
+            <input
+              type="text"
+              name="lugar"
+              class="campo-texto"
+              placeholder="Lugar de Encuentro"
+              value="{{ publicacion.lugar }}"
+              required
+            />
+          </div>
 
-       <label>Descripción del encuentro:</label>
-        <br>
-        <textarea name="descripcion" rows="5">{{ pub.descripcion }}</textarea>
-        <br><br>
+          <div class="grupo-formulario">
+            <textarea
+              name="descripcion"
+              class="campo-texto area-texto"
+              placeholder="Descripción del encuentro"
+              required
+            >
+{{ publicacion.descripcion }}</textarea
+            >
+          </div>
 
-        <button type="submit">Guardar</button>
-    </form>
-
-</body>
+          <div class="contenedor-boton">
+            <button type="submit" class="boton-guardar">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
